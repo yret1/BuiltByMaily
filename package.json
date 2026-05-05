@@ -6,16 +6,15 @@
   "scripts": {
     "build:lib": "nx build email-builder",
     "build:demo": "nx build demo-app",
-    "build:api": "nx build api",
+    "build:api": "npm run build --prefix api",
     "serve:demo": "nx serve demo-app",
-    "serve:api": "nx serve api",
+    "serve:api": "npm run dev --prefix api",
     "test": "nx run-many --target=test",
     "lint": "nx run-many --target=lint"
   },
   "workspaces": [
     "apps/*",
-    "libs/*",
-    "api"
+    "libs/*"
   ],
   "devDependencies": {
     "@angular-devkit/build-angular": "^19.2.0",
