@@ -29,6 +29,8 @@ export {
 } from './lib/schema/block.types';
 
 export { createDefaultBlock } from './lib/schema/block.defaults';
+export { createDefaultTemplate } from './lib/schema/template.presets';
+export { HtmlRendererService } from './lib/services/html-renderer.service';
 
 export type {
   BuilderConfig,

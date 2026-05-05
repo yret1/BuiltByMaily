@@ -1,15 +1,12 @@
 import { Injectable, signal, computed } from '@angular/core';
-import { nanoid } from 'nanoid';
 import type { AnyBlock, BlockType, EmailTemplate } from '../schema/block.types';
-import { createBlankTemplate } from '../schema/block.types';
 import { createDefaultBlock } from '../schema/block.defaults';
+import { createDefaultTemplate } from '../schema/template.presets';
 import { HistoryService } from './history.service';
 
 @Injectable({ providedIn: 'root' })
 export class TemplateService {
-  private readonly _template = signal<EmailTemplate>(
-    createBlankTemplate(nanoid(10), 'Untitled Template')
-  );
+  private readonly _template = signal<EmailTemplate>(createDefaultTemplate());
 
   readonly template = this._template.asReadonly();
   readonly blocks = computed(() => this._template().blocks);
