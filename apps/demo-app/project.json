@@ -1,0 +1,50 @@
+{
+  "name": "demo-app",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/demo-app/src",
+  "prefix": "app",
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:application",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/demo-app",
+        "index": "apps/demo-app/src/index.html",
+        "browser": "apps/demo-app/src/main.ts",
+        "polyfills": ["zone.js"],
+        "tsConfig": "apps/demo-app/tsconfig.app.json",
+        "assets": ["apps/demo-app/src/favicon.ico", "apps/demo-app/src/assets"],
+        "styles": ["apps/demo-app/src/styles.css"],
+        "scripts": []
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            { "type": "initial", "maximumWarning": "500kb", "maximumError": "1mb" },
+            { "type": "anyComponentStyle", "maximumWarning": "2kb", "maximumError": "4kb" }
+          ],
+          "outputHashing": "all"
+        },
+        "development": {
+          "optimization": false,
+          "sourceMap": true,
+          "namedChunks": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@angular-devkit/build-angular:dev-server",
+      "configurations": {
+        "production": { "buildTarget": "demo-app:build:production" },
+        "development": { "buildTarget": "demo-app:build:development" }
+      },
+      "defaultConfiguration": "development"
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint"
+    }
+  },
+  "tags": ["type:app", "scope:demo"]
+}
