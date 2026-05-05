@@ -1,0 +1,36 @@
+{
+  "name": "email-builder",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "libs/email-builder/src",
+  "prefix": "emb",
+  "targets": {
+    "build": {
+      "executor": "@nx/angular:package",
+      "outputs": ["{workspaceRoot}/dist/libs/email-builder"],
+      "options": {
+        "project": "libs/email-builder/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "libs/email-builder/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "libs/email-builder/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/libs/email-builder"],
+      "options": {
+        "jestConfig": "libs/email-builder/jest.config.ts"
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint"
+    }
+  },
+  "tags": ["type:lib", "scope:email-builder"]
+}

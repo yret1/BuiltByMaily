@@ -1,0 +1,38 @@
+{
+  "name": "builder-standalone",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/builder-standalone/src",
+  "prefix": "app",
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:application",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/builder-standalone",
+        "index": "apps/builder-standalone/src/index.html",
+        "browser": "apps/builder-standalone/src/main.ts",
+        "polyfills": ["zone.js"],
+        "tsConfig": "apps/builder-standalone/tsconfig.app.json",
+        "assets": ["apps/builder-standalone/src/favicon.ico", "apps/builder-standalone/src/assets"],
+        "styles": ["apps/builder-standalone/src/styles.css"],
+        "scripts": []
+      },
+      "configurations": {
+        "production": { "outputHashing": "all" },
+        "development": { "optimization": false, "sourceMap": true }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@angular-devkit/build-angular:dev-server",
+      "configurations": {
+        "production": { "buildTarget": "builder-standalone:build:production" },
+        "development": { "buildTarget": "builder-standalone:build:development" }
+      },
+      "defaultConfiguration": "development"
+    },
+    "lint": { "executor": "@nx/eslint:lint" }
+  },
+  "tags": ["type:app", "scope:standalone"]
+}

@@ -1,0 +1,38 @@
+{
+  "name": "@builtbymaily/api",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "build": "tsc -p tsconfig.build.json",
+    "start": "node dist/index.js",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "tsx src/db/migrate.ts",
+    "db:studio": "drizzle-kit studio"
+  },
+  "dependencies": {
+    "@fastify/cors": "^9.0.0",
+    "@fastify/jwt": "^9.0.0",
+    "@fastify/multipart": "^8.0.0",
+    "@fastify/swagger": "^8.0.0",
+    "@fastify/swagger-ui": "^4.0.0",
+    "@fastify/type-provider-zod": "^4.0.0",
+    "bcryptjs": "^2.4.3",
+    "drizzle-orm": "^0.36.0",
+    "fastify": "^4.28.0",
+    "mjml": "^4.15.3",
+    "nanoid": "^5.0.0",
+    "pg": "^8.13.0",
+    "zod": "^3.23.0"
+  },
+  "devDependencies": {
+    "@types/bcryptjs": "^2.4.6",
+    "@types/mjml": "^4.7.4",
+    "@types/node": "^22.0.0",
+    "@types/pg": "^8.11.0",
+    "drizzle-kit": "^0.27.0",
+    "tsx": "^4.19.0",
+    "typescript": "~5.7.0"
+  }
+}

@@ -1,0 +1,33 @@
+.nx/polygraph
+.nx/cache
+.claude/worktrees
+.claude/settings.local.json
+
+# Dependencies
+node_modules/
+
+# Build outputs
+dist/
+tmp/
+out-tsc/
+*.js.map
+
+# Angular cache
+.angular/
+
+# Environment files
+.env
+*.env.local
+api/.env
+
+# Editor
+.idea/
+.vscode/settings.json
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Coverage
+coverage/
